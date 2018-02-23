@@ -1,0 +1,29 @@
+<div>
+  <div *ngIf="apiList_data">totalcount: {{totalcount}} </div>
+  <table>
+    <thead>
+      <tr><th>id</th><th>title</th> <th>type</th><th>image</th><th>rating</th><th></th> </tr>
+      
+    </thead>
+    <tbody  *ngIf="apiList_data ">
+      <tr  *ngFor="let l of apiList_data;let i = index" >
+        <td> {{l.id}} </td>
+        <td>{{l.title}} </td>
+        <td>{{l.type}} </td>
+        <td><img src="{{l.images.downsized.url}}" alt=""> </td>
+        <td>{{l.rating}} </td>
+        <td > <button (click)="saveImage(l)" value="save">save</button> </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="sqlResult">
+      <tr  *ngFor = "let s of sqlResult">
+        <td> {{s.id}} </td>
+        <td>{{s.title}} </td>
+        <td>{{s.type}} </td>
+        <td><img src="{{s.url}}" alt=""> </td>
+        <td>{{s.rating}} </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>

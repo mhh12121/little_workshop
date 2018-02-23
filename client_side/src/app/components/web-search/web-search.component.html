@@ -1,0 +1,19 @@
+<form *ngIf="!isLogin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <input type="text" name="loginName" placeholder="login FIRST!" required ngModel/>
+  <button type="submit">login</button>
+  
+</form>
+<div *ngIf="isLogin">
+    <h3 >welcome, {{username}} </h3>
+    <div><button (click)="logout()" >logout</button></div>
+  </div>
+
+<form #submitForm="ngForm" (ngSubmit)="getKey(submitForm)" >
+      
+  <!--need ngModel!!!!-->
+      
+      <input name ="keyword" type="text" placeholder="Key words" required ngModel/>
+      <button type="submit" value="search">search</button>
+      <input  type="checkbox" value="giphyweb" (ngModelChange)="change($event)" name="isSql" ngModel/>sql
+      <!-- <input *ngIf="isSql" type="text" value="username" name="username" placeholder="username" ngModel /> -->
+</form>
